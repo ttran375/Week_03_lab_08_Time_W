@@ -7,7 +7,7 @@ You will learn about enums, static members and default arguments.
 An enum is a user-define type like a class. However, all the members are
 constants with implied values. It provides an efficient way of defining
 a set of named integral constants such as the days of the week or months
-of the year or even the set of pre-defined colors.
+of the year or even the set of predefined colors.
 
 It supports a more robust programming style e.g. If you have a method
 that expects a month as an argument of type to a string, you will have
@@ -242,7 +242,7 @@ foreach (Time t in times)
 
 ```
 
-```
+``` txt
 Time format is Hour12
 9:35 AM
 6:05 PM

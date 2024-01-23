@@ -53,7 +53,6 @@
 
     public class Time
     {
-        
         private static TimeFormat TIME_FORMAT = TimeFormat.Hour12;
         public int Hour { get; private set; }
         public int Minute { get; private set; }
