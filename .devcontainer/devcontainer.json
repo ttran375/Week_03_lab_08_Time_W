@@ -1,0 +1,22 @@
+{
+    "name": "Default Linux Universal",
+    "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode-remote.remote-containers",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "GitHub.codespaces",
+                "vsls-contrib.gitdoc",
+                "ms-dotnettools.csdevkit",
+                "kreativ-software.csharpextensions",
+                "jorgeserrano.vscode-csharp-snippets",
+                "vain0x.csharp-gen-ctor",
+                "afmicc.GetterAndSetterGenerator",
+                "EditorConfig.EditorConfig",
+                "streetsidesoftware.code-spell-checker"
+            ]
+        }
+    }
+}
