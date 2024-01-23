@@ -13,6 +13,7 @@
         "vain0x.csharp-gen-ctor",
         "afmicc.GetterAndSetterGenerator",
         "EditorConfig.EditorConfig",
+        "DavidAnson.vscode-markdownlint",
         "streetsidesoftware.code-spell-checker"
       ]
     }

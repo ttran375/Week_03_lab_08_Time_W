@@ -70,7 +70,7 @@ external to the Time class.
 
 \# protected
 
-### Code the Time class below:
+### Code the Time class below
 
 This class comprise of six members: a field, two properties and two
 methods and a constructor a SetTimeFormat() and a ToString() method. All
@@ -129,11 +129,11 @@ If it is changed then all object will see the new value immediately.
 A class method can only access other class member
 (fields/properties/methods)
 
-##### Fields:
+##### Fields
 
 There are no fields for this class.
 
-##### Properties:
+##### Properties
 
 **TIME_FORMAT** – this class variable is of type
 <span class="mark">TimeFormat</span> and it represents the intended
@@ -147,7 +147,7 @@ This property has public read access and the setter is missing.
 **Minute** – this is an integer representing the minute value this
 object. This property has public read access and the setter is missing.
 
-##### Constructor:
+##### Constructor
 
 **<span class="mark">public</span> Time(int hours = 0, int minutes =
 0)** – This is a public constructor that takes two integer arguments
@@ -157,7 +157,7 @@ assign to the hour property. Similarly the second argument is check if
 it is between 0 and 60 then it is assigned to the Minute property
 otherwise a value of 0 is assigned to the Minute property.
 
-##### Methods:
+##### Methods
 
 **<span class="mark">public override string</span> ToString()** – This
 public method overrides the ToString of the object class. It does not
