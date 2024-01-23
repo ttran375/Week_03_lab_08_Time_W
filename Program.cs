@@ -1,91 +1,104 @@
-﻿namespace Week_03_lab_08_Time_W
+﻿using System;
+using System.Collections.Generic;
+
+// Enum definition for TimeFormat
+public enum TimeFormat
 {
-    internal class Program
+    Mil,
+    Hour12,
+    Hour24
+}
+
+// Time class definition
+public class Time
+{
+    // Private static field for the default time format
+    private static TimeFormat TIME_FORMAT = TimeFormat.Hour12;
+
+    // Public properties with private setters for Hour and Minute
+    public int Hour { get; private set; }
+    public int Minute { get; private set; }
+
+    // Public constructor with default values for hours and minutes
+    public Time(int hours = 0, int minutes = 0)
     {
-        static void Main(string[] args)
+        // Validate and set Hour property
+        if (hours >= 0 && hours <= 24)
+            Hour = hours;
+        else
+            Hour = 0;
+
+        // Validate and set Minute property
+        if (minutes >= 0 && minutes < 60)
+            Minute = minutes;
+        else
+            Minute = 0;
+    }
+
+    // Public method to override ToString() and display time based on TIME_FORMAT
+    public override string ToString()
+    {
+        switch (TIME_FORMAT)
         {
-            // Create a list to store the objects
-            List<Time> times = new()
-            {
-              new Time(9, 35),
-              new Time(18, 5),
-              new Time(20, 500),
-              new Time(10),
-              new Time()
-            };
+            case TimeFormat.Mil:
+                return $"{Hour:D2}{Minute:D2}";
 
-            // Display all the objects
-            TimeFormat format = TimeFormat.Hour12;
-            Console.WriteLine($"\n\nTime format is {format}");
-            foreach (Time t in times)
-            {
-                Console.WriteLine(t);
-            }
+            case TimeFormat.Hour12:
+                return $"{(Hour % 12 == 0 ? 12 : Hour % 12):D2}:{Minute:D2} {(Hour < 12 ? "AM" : "PM")}";
 
-            // Change the format of the output
-            format = TimeFormat.Mil;
-            Console.WriteLine($"\n\nSetting time format to {format}");
+            case TimeFormat.Hour24:
+                return $"{Hour:D2}:{Minute:D2}";
 
-            // SetFormat(TimeFormat) is a class member, so you need the type to access it
-            Time.SetFormat(format);
-
-            // Again display all the objects
-            foreach (Time t in times)
-            {
-                Console.WriteLine(t);
-            }
-
-            // Change the format of the output
-            format = TimeFormat.Hour24;
-            Console.WriteLine($"\n\nSetting time format to {format}");
-
-            // SetFormat(TimeFormat) is a class member, so you need the type to access it
-            Time.SetFormat(format);
-            foreach (Time t in times)
-            {
-                Console.WriteLine(t);
-            }
+            default:
+                throw new InvalidOperationException("Invalid time format");
         }
     }
 
-    public enum TimeFormat
+    // Public static method to set the default time format
+    public static void SetTimeFormat(TimeFormat timeFormat)
     {
-        Mil,
-        Hour12,
-        Hour24
+        TIME_FORMAT = timeFormat;
     }
+}
 
-
-    public class Time
+class Program
+{
+    static void Main()
     {
-        private static TimeFormat TIME_FORMAT = TimeFormat.Hour12;
-        private int Hour { get; }
-        private int Minute { get; }
-
-        public Time(int hour = 0, int minute = 0)
+        // Create a list to store the Time objects
+        List<Time> times = new List<Time>()
         {
-            Hour = (hour >= 0 && hour < 24) ? hour : 0;
-            Minute = (minute >= 0 && minute < 60) ? minute : 0;
+            new Time(9, 35),
+            new Time(18, 5),
+            new Time(20, 500),
+            new Time(10),
+            new Time()
+        };
+
+        // Display all the objects with the initial time format (Hour12)
+        TimeFormat format = TimeFormat.Hour12;
+        Console.WriteLine($"\nTime format is {format}");
+        foreach (Time t in times)
+        {
+            Console.WriteLine(t);
         }
 
-        public override string ToString()
+        // Change the format to Mil and display all the objects
+        format = TimeFormat.Mil;
+        Console.WriteLine($"\nSetting time format to {format}");
+        Time.SetTimeFormat(format);
+        foreach (Time t in times)
         {
-            switch (TIME_FORMAT)
-            {
-                case TimeFormat.Mil:
-                    return $"{Hour:D2}{Minute:D2}";
-                case TimeFormat.Hour24:
-                    return $"{Hour:D2}:{Minute:D2}";
-                case TimeFormat.Hour12:
-                    return $"{((Hour % 12 == 0) ? 12 : Hour % 12):D2}:{Minute:D2} {(Hour < 12 ? "AM" : "PM")}";
-                default:
-                    return "";
-            }
+            Console.WriteLine(t);
         }
 
-        public static void SetFormat(TimeFormat timeFormat)
+        // Change the format to Hour24 and display all the objects
+        format = TimeFormat.Hour24;
+        Console.WriteLine($"\nSetting time format to {format}");
+        Time.SetTimeFormat(format);
+        foreach (Time t in times)
         {
-            TIME_FORMAT = timeFormat;
+            Console.WriteLine(t);
         }
     }
 }
