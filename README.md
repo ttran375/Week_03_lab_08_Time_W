@@ -1,5 +1,3 @@
-
-
 # The Time Class
 
 You will learn about enums, static members and default arguments.
