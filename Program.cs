@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-// Enum definition for TimeFormat
-public enum TimeFormat
+﻿public enum TimeFormat
 {
     Mil,
     Hour12,
