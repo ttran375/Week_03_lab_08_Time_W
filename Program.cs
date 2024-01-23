@@ -36,6 +36,7 @@ public class Time
     }
 
     // Public method to override ToString() and display time based on TIME_FORMAT
+    // Public method to override ToString() and display time based on TIME_FORMAT
     public override string ToString()
     {
         switch (TIME_FORMAT)
@@ -44,7 +45,8 @@ public class Time
                 return $"{Hour:D2}{Minute:D2}";
 
             case TimeFormat.Hour12:
-                return $"{(Hour % 12 == 0 ? 12 : Hour % 12):D2}:{Minute:D2} {(Hour < 12 ? "AM" : "PM")}";
+                int displayHour = (Hour % 12 == 0 ? 12 : Hour % 12);
+                return $"{(displayHour < 10 ? displayHour.ToString("D1") : displayHour.ToString("D2"))}:{Minute:D2} {(Hour < 12 ? "AM" : "PM")}";
 
             case TimeFormat.Hour24:
                 return $"{Hour:D2}:{Minute:D2}";
@@ -59,6 +61,7 @@ public class Time
     {
         TIME_FORMAT = timeFormat;
     }
+
 }
 
 class Program

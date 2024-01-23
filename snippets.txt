@@ -1,9 +1,0 @@
-touch .github-personal-access-token
-
-docker run \
-  -e ACTIONS_RUNNER_DEBUG=true \
-  -e RUN_LOCAL=true \
-  -e GITHUB_SHA=$(git rev-parse HEAD) \
-  -v /path/to/local/codebase:/tmp/lint \
-  --rm \
-  ghcr.io/super-linter/super-linter:latest
