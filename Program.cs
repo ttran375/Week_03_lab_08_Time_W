@@ -1,4 +1,4 @@
-﻿namespace Week_3_lab_09_Cars_W
+﻿namespace Week_3_lab_08_Time_W
 {
     internal class Program
     {
