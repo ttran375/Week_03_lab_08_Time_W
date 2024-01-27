@@ -7,11 +7,11 @@
             // Create a list to store the Time objects
             List<Time> times = new List<Time>()
             {
-                new Time(9, 35),
-                new Time(18, 5),
-                new Time(20, 500),
-                new Time(10),
-                new Time()
+                new(9, 35),
+                new(18, 5),
+                new(20, 500),
+                new(10),
+                new()
             };
 
             // Display all the objects with the initial time format (Hour12)
