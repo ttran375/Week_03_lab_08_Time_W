@@ -1,5 +1,9 @@
 # The Time Class
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ttran375/comp123-lab8)
+
+[![Style Check](https://github.com/ttran375/comp123-lab8/actions/workflows/main.yml/badge.svg)](https://github.com/ttran375/comp123-lab8/actions/workflows/main.yml)
+
 You will learn about enums, static members and default arguments.
 
 ## Enums
