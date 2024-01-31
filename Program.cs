@@ -72,20 +72,13 @@
 
         public override string ToString()
         {
-            switch (TIME_FORMAT)
+            return TIME_FORMAT switch
             {
-                case TimeFormat.Mil:
-                    return $"{Hour:D2}{Minute:D2}";
-
-                case TimeFormat.Hour12:
-                    return $"{(Hour % 12 == 0 ? 12 : Hour % 12):D2}:{Minute:D2} {(Hour < 12 ? "AM" : "PM")}";
-
-                case TimeFormat.Hour24:
-                    return $"{Hour:D2}:{Minute:D2}";
-
-                default:
-                    throw new InvalidOperationException("Invalid time format");
-            }
+                TimeFormat.Mil => $"{Hour:D2}{Minute:D2}",
+                TimeFormat.Hour12 => $"{(Hour % 12 == 0 ? 12 : Hour % 12):D2}:{Minute:D2} {(Hour < 12 ? "AM" : "PM")}",
+                TimeFormat.Hour24 => $"{Hour:D2}:{Minute:D2}",
+                _ => throw new InvalidOperationException("Invalid time format"),
+            };
         }
 
         public static void SetTimeFormat(TimeFormat timeFormat)
